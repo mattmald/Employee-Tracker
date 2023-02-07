@@ -1,6 +1,8 @@
 const { prompt } =  require("inquirer");
 const db = require("./db");
+const fs = require('fs');
 require("console.table");
+const connection = require("./server");
 
 init()
 
@@ -24,6 +26,26 @@ function start(){
                 name: 'View All Employees By Department',
                 value: 'VIEW_EMPLOYEES_BY_DEPARTMENT'
             }
+            {
+                name: 'Add Empolyee',
+                value: 'ADD_EMPOLYEE'
+            }
+            {
+                name: 'Remove Empolyee',
+                value: 'REMOVE_EMPLOYEE'
+            }
+            {
+                name: 'Update Empolyee',
+                value: 'UPDATE_EMPOLYEE'
+            }
+            {
+                name: 'Add Role',
+                value: 'ADD_ROLE'
+            }
+            {
+                name: 'End',
+                value: 'END'
+            }
           ]
         }
     ]).then(view => {
@@ -36,6 +58,26 @@ function start(){
             case "VIEW_EMPLOYEES_BY_DEPARTMENT":
                 viewEmployeesByDepartment()
             break;
+
+            case "Add Employee":
+                addEmployee();
+                break;
+      
+              case "Remove Employees":
+                removeEmployees();
+                break;
+      
+              case "Update Employee Role":
+                updateEmployeeRole();
+                break;
+      
+              case "Add Role":
+                addRole();
+                break;
+      
+              case "End":
+                connection.end();
+                break;
         }
     }) 
 }
