@@ -27,5 +27,5 @@ CREATE TABLE employee (
   last_name VARCHAR(30) NOT NULL,
   FOREIGN KEY (role_id) 
   REFERENCES employee_role(id),
-  manager_id INT  REFERENCES employee
+  manager_id INT REFERENCES employee
 );
