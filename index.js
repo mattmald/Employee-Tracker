@@ -1,5 +1,5 @@
 const { prompt } =  require("inquirer");
-const db = require("./db");
+const db = require("./db/index");
 const fs = require('fs');
 require("console.table");
 const connection = require("./server");
@@ -25,23 +25,23 @@ function start(){
             {
                 name: 'View All Employees By Department',
                 value: 'VIEW_EMPLOYEES_BY_DEPARTMENT'
-            }
+            },
             {
                 name: 'Add Empolyee',
                 value: 'ADD_EMPOLYEE'
-            }
+            },
             {
                 name: 'Remove Empolyee',
                 value: 'REMOVE_EMPLOYEE'
-            }
+            },
             {
                 name: 'Update Empolyee',
                 value: 'UPDATE_EMPOLYEE'
-            }
+            },
             {
                 name: 'Add Role',
                 value: 'ADD_ROLE'
-            }
+            },
             {
                 name: 'End',
                 value: 'END'
