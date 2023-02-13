@@ -13,8 +13,9 @@ const db = mysql.createConnection(
 );
 
 db.connect(function (error) {
-  if (error) 
-  throw(error)
+  if (error) {
+    throw(error)
+  }
 });
 
 module.exports = db;

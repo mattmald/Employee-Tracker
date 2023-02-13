@@ -1,4 +1,4 @@
-const connection = require('../server.js');
+const connection = require('../connection.js');
 
 class Querys {
     constructor(connection) {
@@ -6,15 +6,16 @@ class Querys {
     }
 
     findAllEmployees() {
-        return this.connection.promise().query('SELECT COUNT(id) AS total_count FROM employees_db GROUP BY department');
+
+        return this.connection.promise().query('SELECT * FROM employees_db.employee');
     }
 
     findEmployees(){
-        return this.connection.promise().query('SELECT employee.id, employee.first_name, employee.last_name, department.department_name, employee_role.title, employee_role.salary, employee.manager_id FROM employee LEFT JOIN employee_role ON employee.role_id = employee_role.id LEFT JOIN department ON employee_role.department_id = department.id')
+        return this.connection.promise().query(`SELECT * FROM employees_db.employee WHERE id = ${id}`);
     }
 
     findRole() {
-        return this.connection.promise().query('SELECT employee_role.id, employee_role.title, department.department_name, employee_role.salary FROM employee_role LEFT JOIN department ON employee_role.department_id = department.id;');
+        return this.connection.promise().query('SELECT * FROM employees_db.employee_role');
     }
 
     findDeparment() {
